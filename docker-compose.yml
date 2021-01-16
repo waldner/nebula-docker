@@ -1,0 +1,27 @@
+version: '3.5'
+
+services:
+  nebula:
+    image: waldner/nebula:1.3.0
+    hostname: nebula
+    container_name: nebula
+    restart: always
+    network_mode: host
+    volumes:
+      - "${CA_CERT}:/certs/ca.crt"
+      - "${NODE_CERT}:/certs/node.crt"
+      - "${NODE_KEY}:/certs/node.key"
+      - ./config.yml.template:/config.yml.template
+    environment:
+      - LIGHTHOUSE_VPN_IP=${LIGHTHOUSE_VPN_IP:-}
+      - LIGHTHOUSE_PUBLIC_ADDR=${LIGHTHOUSE_PUBLIC_ADDR:-}
+      - LIGHTHOUSE_PUBLIC_PORT=${LIGHTHOUSE_PUBLIC_PORT:-4242}
+      - AM_LIGHTHOUSE=${AM_LIGHTHOUSE:-false}
+      - LISTEN_HOST=${LISTEN_HOST:-0.0.0.0}
+      - LISTEN_PORT=${LISTEN_PORT:-4242}
+      - TUN_DEVICE=${TUN_DEVICE:-nebula1}
+    cap_add:
+      - NET_ADMIN
+    devices:
+      - "/dev/net/tun:/dev/net/tun"
+

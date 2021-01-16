@@ -1,0 +1,9 @@
+#!/bin/bash
+
+nebula_version=$(awk '/^ENV NEBULA_VERSION=/{ gsub(/^ENV .*=/, ""); print; exit}' "${DOCKERFILE_PATH}")
+
+image_name=waldner/nebula:${nebula_version}
+
+docker tag $IMAGE_NAME $DOCKER_REPO:${nebula_version}
+docker push $DOCKER_REPO:${nebula_version}
+docker push $DOCKER_REPO:latest
