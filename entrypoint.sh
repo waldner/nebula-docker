@@ -5,5 +5,5 @@ if [ "$AM_LIGHTHOUSE" != "true" ]; then
     sed -i 's/^##########//' /config.yml
 fi
 
-nebula -config /config.yml
+exec nebula -config /config.yml
 

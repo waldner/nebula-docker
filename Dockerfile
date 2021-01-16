@@ -7,6 +7,3 @@ COPY entrypoint.sh /
 RUN chmod +x /entrypoint.sh
 
 ENTRYPOINT [ "/entrypoint.sh" ]
-
-CMD [ "/nebula", "-config", "/config.yml" ]
-
