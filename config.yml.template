@@ -16,7 +16,7 @@ pki:
 # The syntax is:
 #   "{nebula ip}": ["{routable ip/dns name}:{routable port}"]
 # Example, if your lighthouse has the nebula IP of 192.168.100.1 and has the real ip address of 100.64.22.11 and runs on port 4242:
-##########static_host_map:
+static_host_map:
 ##########  "${LIGHTHOUSE_VPN_IP}": ["${LIGHTHOUSE_PUBLIC_ADDR}:${LIGHTHOUSE_PUBLIC_PORT}"]
 
 
