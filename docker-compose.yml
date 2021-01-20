@@ -13,9 +13,8 @@ services:
       - "${NODE_KEY}:/certs/node.key"
       - ./config.yml.template:/config.yml.template
     environment:
-      - LIGHTHOUSE_VPN_IP=${LIGHTHOUSE_VPN_IP:-}
-      - LIGHTHOUSE_PUBLIC_ADDR=${LIGHTHOUSE_PUBLIC_ADDR:-}
-      - LIGHTHOUSE_PUBLIC_PORT=${LIGHTHOUSE_PUBLIC_PORT:-4242}
+      - STATIC_HOST_MAP=${STATIC_HOST_MAP:-}
+      - LIGHTHOUSE_HOSTS=${LIGHTHOUSE_HOSTS:-}
       - AM_LIGHTHOUSE=${AM_LIGHTHOUSE:-false}
       - LISTEN_HOST=${LISTEN_HOST:-0.0.0.0}
       - LISTEN_PORT=${LISTEN_PORT:-4242}

@@ -6,10 +6,13 @@ Docker image + compose file for nebula mesh
 Create a .env file with the following contents:
 
 ```
-# only if we're not a lighthouse
-LIGHTHOUSE_VPN_IP=192.168.1.1
-LIGHTHOUSE_PUBLIC_ADDR=lighthouse.example.net
-LIGHTHOUSE_PUBLIC_PORT=4242
+# separate by percent sign
+STATIC_HOST_MAP=192.168.1.1,lighthouse.example.net:4242%192.168.1.2,host2.example.net
+
+# list of VPN ips of lighthouse nodes
+# these are used only on non-lighthouse nodes
+# separate by percent sign
+LIGHTHOUSE_HOSTS=192.168.1.1%192.168.1.7
 
 # set to true or false
 AM_LIGHTHOUSE=false
