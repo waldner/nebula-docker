@@ -24,4 +24,3 @@ if [ "$AM_LIGHTHOUSE" != "true" ]; then
 fi
 
 exec nebula -config /config.yml
-
